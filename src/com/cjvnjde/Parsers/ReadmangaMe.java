@@ -73,7 +73,7 @@ public class ReadmangaMe implements ChapParser, ImageParser {
             }
         }
         br.close();
-        System.out.println(chapMap);
+       // System.out.println(chapMap);
         return chapMap;
     }
 

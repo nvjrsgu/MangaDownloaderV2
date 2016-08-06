@@ -20,7 +20,7 @@ public class ChooseImageParser {
         this.mangaUrl = mangaUrl;
     }
 
-    ChapParser chooseChapParser(){
+    ImageParser chooseImageParser(){
         switch(mangaHost){
             case "readmanga.me":
                 return new ReadmangaMe();
@@ -29,9 +29,9 @@ public class ChooseImageParser {
         }
         return new MintmangaCom();
     }
-    LinkedHashMap chapParser() throws IOException {
-        ChapParser cp = chooseChapParser();
-        return cp.SearchChapters(mangaUrl);
+    LinkedHashMap imageParser() throws IOException {
+        ImageParser ip = chooseImageParser();
+        return ip.SearchImages(mangaUrl);
     }
 
 }

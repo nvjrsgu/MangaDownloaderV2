@@ -72,7 +72,7 @@ public class MintmangaCom implements ChapParser, ImageParser {
             }
         }
         br.close();
-        System.out.println(chapMap);
+     //   System.out.println(chapMap);
         return chapMap;
     }
 
@@ -124,12 +124,12 @@ public class MintmangaCom implements ChapParser, ImageParser {
                             }
                         }
                     }
-                    System.out.println(line);
+                   // System.out.println(line);
                 }
 
             }
         }
-        System.out.println(lhm);
+       // System.out.println(lhm);
         return lhm;
     }
 }
