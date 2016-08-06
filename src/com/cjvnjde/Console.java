@@ -60,6 +60,6 @@ public class Console {
         br.close();
         System.out.println("Folder "+folder);
 
-        RangeDownloader rd2 = new RangeDownloader(lhm2, al.get(finish), al.get(start), folder);
+        RangeDownloader rd2 = new RangeDownloader(lhm2, al.get(finish), al.get(start), folder, false);
     }
 }

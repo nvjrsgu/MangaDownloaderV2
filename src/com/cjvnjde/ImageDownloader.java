@@ -61,8 +61,11 @@ public class ImageDownloader {
         }
     }
     public ImageDownloader(LinkedHashMap<String, String> lhm, String pref, String folder) throws IOException {
+        File f = new File(folder);
+        if(!f.exists()){
+            f.mkdirs();
+        }
         Iterator<Map.Entry<String, String>> itr = lhm.entrySet().iterator();
-
         while(itr.hasNext()) {
             Map.Entry<String, String> entry = itr.next();
             URL url = new URL(entry.getValue());
@@ -77,5 +80,6 @@ public class ImageDownloader {
             os.close();
         }
     }
+
 
 }
