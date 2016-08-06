@@ -117,7 +117,8 @@ public class MintmangaCom implements ChapParser, ImageParser {
                                     counter++;
                                     break;
                                 case 2: chap3 = arr;
-                                    lhm.put(chap3, chap1+chap2+chap3);
+                                    String arr1[] = chap3.split("/");
+                                    lhm.put(arr1[arr1.length-1], chap1+chap2+chap3);
                                     counter = 0;
                                     break;
                             }
