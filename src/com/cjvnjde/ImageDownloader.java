@@ -4,8 +4,10 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -69,7 +71,9 @@ public class ImageDownloader {
         while(itr.hasNext()) {
             Map.Entry<String, String> entry = itr.next();
             URL url = new URL(entry.getValue());
-            InputStream is = url.openStream();
+            HttpURLConnection connection =(HttpURLConnection) url.openConnection();
+            connection.addRequestProperty("User-Agent", "Mozilla/4.76");
+            InputStream is = connection.getInputStream();
             OutputStream os = new FileOutputStream(folder+"/"+pref+"_"+entry.getKey());
             byte[] b = new byte[2048];
             int length;
