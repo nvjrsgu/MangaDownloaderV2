@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class Console {
     public void runConsole() throws IOException {
-        System.out.println("Supportes sites: \n      mintmanga.com\n      readmanga.me\n mangafox.me");
+        System.out.println("Supportes sites: \n      mintmanga.com\n      readmanga.me\n      mangafox.me");
         System.out.println("Enter manga url:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String url = br.readLine();

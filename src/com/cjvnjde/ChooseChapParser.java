@@ -1,6 +1,7 @@
 package com.cjvnjde;
 
 import com.cjvnjde.Parsers.MangafoxMe;
+import com.cjvnjde.Parsers.MangareaderNet;
 import com.cjvnjde.Parsers.MintmangaCom;
 import com.cjvnjde.Parsers.ReadmangaMe;
 
@@ -29,6 +30,8 @@ public class ChooseChapParser {
                 return new MintmangaCom();
             case "mangafox.me":
                 return new MangafoxMe();
+            case "www.mangareader.net":
+                return new MangareaderNet();
         }
         return null;
     }

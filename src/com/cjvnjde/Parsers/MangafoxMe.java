@@ -32,15 +32,15 @@ public class MangafoxMe implements ChapParser, ImageParser {
         BufferedReader br;
         urlCon.setRequestProperty("Accept-Encoding", "gzip,deflate,sdch");
         if("gzip".equals(urlCon.getContentEncoding())) {
-            System.out.println(urlCon.getContentEncoding());
+            //System.out.println(urlCon.getContentEncoding());
           //  br = new BufferedReader(new InputStreamReader(new GZIPInputStream(url.openStream())));
             br = new BufferedReader(new InputStreamReader(new GZIPInputStream(urlCon.getInputStream())));
-            System.out.println("gzip");
+         //   System.out.println("gzip");
         } else {
-            System.out.println(urlCon.getContentEncoding());
+         //   System.out.println(urlCon.getContentEncoding());
            // br = new BufferedReader(new InputStreamReader(url.openStream()));
             br = new BufferedReader(new InputStreamReader(urlCon.getInputStream()));
-            System.out.println("not gzip");
+        //    System.out.println("not gzip");
         }
         int numberOfPages = 1;
         String line = "";
@@ -197,7 +197,7 @@ public class MangafoxMe implements ChapParser, ImageParser {
             }
         }
         br.close();
-    //  System.out.println(chapMap);
+        System.out.println(chapMap);
         return chapMap;
     }
 }
