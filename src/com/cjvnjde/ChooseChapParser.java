@@ -1,5 +1,6 @@
 package com.cjvnjde;
 
+import com.cjvnjde.Parsers.MangafoxMe;
 import com.cjvnjde.Parsers.MintmangaCom;
 import com.cjvnjde.Parsers.ReadmangaMe;
 
@@ -26,8 +27,10 @@ public class ChooseChapParser {
                 return new ReadmangaMe();
             case "mintmanga.com":
                 return new MintmangaCom();
+            case "mangafox.me":
+                return new MangafoxMe();
         }
-        return new MintmangaCom();
+        return null;
     }
     LinkedHashMap chapParser() throws IOException {
         ChapParser cp = chooseChapParser();
