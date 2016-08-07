@@ -15,11 +15,7 @@ import java.net.URLConnection;
 import java.util.*;
 
 public class Main {
-    int range;
-    String url;
-    String host;
-    String mangaName;
-    String chapters[];
+
     public static void main(String[] args) throws IOException {
     MangareaderNet mrn = new MangareaderNet();
      //mfm.SearchImages("http://mangafox.me/manga/one_piece/v56/c549/1.html");
