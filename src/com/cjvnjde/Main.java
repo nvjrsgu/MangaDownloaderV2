@@ -25,8 +25,8 @@ public class Main {
       con.runConsole();
 /*
         URL url = new URL("http://i4.mangareader.net/fairy-tail-zero/12/fairy-tail-zero-5752788.jpg");
-        HttpURLConnection connection =(HttpURLConnection) url.openConnection();
-        connection.addRequestProperty("User-Agent", "Mozilla/4.76");
+        HttpURLConnection connection =(HttpURLConnection) url.openConnection();http://mangafox.me/manga/onepunch_man/v01/c001/2.htmlhttp://h.mfcdn.net/store/manga/11362/01-001.0/compressed/copm_001_001.jpg
+        connection.addRequestProperty("User-Agent", "Mozilla/4.76");http://h.mfcdn.net/store/manga/11362/01-001.0/compressed/copm_001_002.jpg
         InputStream is = connection.getInputStream();
         OutputStream os = new FileOutputStream("fairy-tail-zero-5752788.jpg");
         byte[] b = new byte[2048];

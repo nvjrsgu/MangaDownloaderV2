@@ -12,6 +12,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.LinkedHashMap;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.ZipException;
 
 /**
  * Created by cjvnjde on 06.08.16.
@@ -30,14 +31,20 @@ public class MangafoxMe implements ChapParser, ImageParser {
         URL url = new URL(chapterUrl);
         URLConnection urlCon = url.openConnection();
         BufferedReader br;
-        urlCon.setRequestProperty("Accept-Encoding", "gzip,deflate,sdch");
+        urlCon.setRequestProperty("Accept-Encoding", "gzip");
         if("gzip".equals(urlCon.getContentEncoding())) {
-            //System.out.println(urlCon.getContentEncoding());
+            System.out.println(urlCon.getContentEncoding()+" gzip");
+
           //  br = new BufferedReader(new InputStreamReader(new GZIPInputStream(url.openStream())));
-            br = new BufferedReader(new InputStreamReader(new GZIPInputStream(urlCon.getInputStream())));
+            try {
+                br = new BufferedReader(new InputStreamReader(new GZIPInputStream(urlCon.getInputStream())));
+            }catch (ZipException e){
+                System.out.println(urlCon.getContentEncoding()+" error gzip");
+                br = new BufferedReader(new InputStreamReader(urlCon.getInputStream()));
+            }
          //   System.out.println("gzip");
         } else {
-         //   System.out.println(urlCon.getContentEncoding());
+          System.out.println(urlCon.getContentEncoding()+" not gzip");
            // br = new BufferedReader(new InputStreamReader(url.openStream()));
             br = new BufferedReader(new InputStreamReader(urlCon.getInputStream()));
         //    System.out.println("not gzip");
@@ -94,14 +101,21 @@ public class MangafoxMe implements ChapParser, ImageParser {
             String im = new String(charImN);
             lhm.put(imm, imU+"/"+imm);
         }
-        boolean correct = false;
+        boolean correct = true;
         //more correct and more slow
         if(correct) {
             line = "";
             for (int i = 1; i <= numberOfPages; i++) {
                 chapterUrl = chapterPreUrl + "/" + i + ".html";
                 url = new URL(chapterUrl);
-                br = new BufferedReader(new InputStreamReader(new GZIPInputStream(url.openStream())));
+                urlCon = url.openConnection();
+                urlCon.setRequestProperty("Accept-Encoding", "gzip");
+                try {
+                    br = new BufferedReader(new InputStreamReader(new GZIPInputStream(urlCon.getInputStream())));
+                }catch (ZipException e){
+                    System.out.println(urlCon.getContentEncoding()+" error gzip");
+                    br = new BufferedReader(new InputStreamReader(urlCon.getInputStream()));
+                }
                 int div = 0;
                 while (line != null) {
                     line = br.readLine();
